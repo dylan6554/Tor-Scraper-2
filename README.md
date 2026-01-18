@@ -1,7 +1,7 @@
 <div align='center'>
 
 <h1>Tor Scraper</h1>
-<h4> <span> · </span> <a href="https://github.com/dylan6554/Tor-Scraper-2/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/dylan6554/Tor-Scraper-2/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/dylan6554/Tor-Scraper-2/issues"> Request Feature </a> </h4>
+<h4> <span>  </span> <a href="https://github.com/dylan6554/Tor-Scraper-2"> Uygulama </a> 
 
 
 </div>
@@ -12,8 +12,6 @@
 - Ekran Görüntüsü
 - Web Panel
 
-
-## :toolbox: Başlarken
 
 ### :bangbang: Önkoşullar
 
