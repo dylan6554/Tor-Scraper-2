@@ -37,4 +37,4 @@ Programı indirdikten sonra terminalde aynı klasöre gelip komutu çalıştır�
 docker compose up --build
 ```
 
-Web panele için user ve pass  `admin`  dir.
+Web panele giriş için user ve pass  `admin`  dir.
