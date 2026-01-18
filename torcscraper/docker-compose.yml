@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  tor:
+    image: dperson/torproxy
+    container_name: tor
+    environment:
+      - TORUSER=1
+    ports:
+      - "9050:9050"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "127.0.0.1", "9050"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - scraper_net
+  findings-postgres:
+    image: postgres:16
+    container_name: findings-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - scraper_net
+  torcscraper-app:
+    build: .
+    container_name: torcscraper-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      tor:
+        condition: service_healthy
+      findings-postgres:
+        condition: service_healthy
+    volumes:
+      - ./scans:/app/scans
+      - ./log.json:/app/log.json
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - scraper_net
+volumes:
+  db_data:
+
+networks:
+  scraper_net:
+    driver: bridge
