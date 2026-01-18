@@ -36,3 +36,5 @@ Programı indirdikten sonra terminalde aynı klasöre gelip komutu çalıştır�
 ```bash
 docker compose up --build
 ```
+
+Web panele için user ve pass  `admin`  dir.
