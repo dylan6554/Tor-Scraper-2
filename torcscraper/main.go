@@ -56,7 +56,7 @@ func main() {
 	outputDir := "scans"
 	os.MkdirAll(outputDir, 0755)
 
-	connStr := "host=findings-postgres port=5432 user=postgres password=sifreniz dbname=postgres sslmode=disable"
+	connStr := "host=findings-postgres port=5432 user=postgres password=123456 dbname=postgres sslmode=disable"
 	db, err = sql.Open("postgres", connStr)
 	_, err = db.Exec(`CREATE TABLE IF NOT EXISTS findings (
     id SERIAL PRIMARY KEY,
@@ -139,3 +139,4 @@ func main() {
 	}
 	select {}
 }
+
