@@ -20,7 +20,7 @@ services:
     container_name: findings-postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: sifreniz
+      POSTGRES_PASSWORD: 123456
       POSTGRES_DB: postgres
     ports:
       - "5432:5432"
@@ -56,3 +56,4 @@ networks:
   scraper_net:
 
     driver: bridge
+
