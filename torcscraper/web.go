@@ -210,11 +210,11 @@ func cikis(w http.ResponseWriter, r *http.Request) {
 func StartWebServer() {
 	dsn := os.Getenv("DATABASE_URL")
 	if dsn == "" {
-		dsn = "host=localhost port=5432 user=postgres password=sifreniz dbname=postgres sslmode=disable"
+		dsn = "host=localhost port=5432 user=postgres password=123456 dbname=postgres sslmode=disable"
 	}
 
 	var err error
-	db, err = sql.Open("postgres", "host=findings-postgres port=5432 user=postgres password=sifreniz dbname=postgres sslmode=disable")
+	db, err = sql.Open("postgres", "host=findings-postgres port=5432 user=postgres password=123456 dbname=postgres sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -231,3 +231,4 @@ func StartWebServer() {
 	log.Println("Panel http://localhost:8080 adresinde çalışıyor...")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
+
